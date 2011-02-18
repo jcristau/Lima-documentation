@@ -12,4 +12,5 @@ Linux
 .. toctree::
   :maxdepth: 1
 
+  camera/maxipix/doc
   camera/pilatus/doc

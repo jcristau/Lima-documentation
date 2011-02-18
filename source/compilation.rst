@@ -58,8 +58,8 @@ Visual studio lima project is configured for now to run on Windows XP, It's not 
 
 *Compilation Steps:*
 
-* First of all you need to compile C/C++ libraries.
-  On this platform there not automatic build. You have to build all C/C++ libraries by your how with Visual Studio.
+* On this platform there not automatic build.
+  You have to build all C/C++ libraries by your how with Visual Studio.
   Visual Studio projects are under :
 
   - third-party/Processlib/build/msvc/9.0/libprocesslib
@@ -68,19 +68,23 @@ Visual studio lima project is configured for now to run on Windows XP, It's not 
 
   - camera/NAME_OF_THE_CAMERA/msvc/9.0/LibNAME_OF_THE_CAMERA
 
-  You have to open them one by one and compile them in that order.
+  Open them one by one and compile them in that order.
 
 * Then at least a python script to generate and compile Python Modules ;)
   The script is called **windowsSipCompilation.py**
 
-- Module configuration:
+  - Module configuration:
 
-  *python windowsSipCompilation.py --config*
+    .. code-block:: sh
+
+      python windowsSipCompilation.py --config
 
 
-- Then the compilation:
+  - Then the compilation:
 
-  *python windowsSipCompilation.py*
+    .. code-block:: sh
+
+      python windowsSipCompilation.py
 
 
 

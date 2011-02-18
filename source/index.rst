@@ -18,6 +18,7 @@ Howto
 .. toctree::
   :maxdepth: 3
 
+  getit
   compilation
   installation
 
