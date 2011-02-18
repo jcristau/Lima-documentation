@@ -3,13 +3,36 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Lima's documentation!
-================================
+====
+Lima
+====
 
-Contents:
+Introdution
+===========
+
+LImA ( **L** ibrary for **IM** age **A** cquisition) is a project for the unified control of 2D detectors. The aim is to clearly separate hardware specific code from common software configuration and features, like setting standard acquisition parameters (exposure time, external trigger), file saving and image processing.
+
+
+LImA specification
+==================
+
+The first LIMA project specification has been written after the previous brain storming sessions. It is composed by the following main topic
 
 .. toctree::
-   :maxdepth: 2
+  :maxdepth: 2
+
+  overview
+  control_specification
+  hardware_specification
+
+Supported Cameras
+=================
+
+.. toctree::
+  :maxdepth: 3
+
+  cameras
+
 
 Indices and tables
 ==================
@@ -17,4 +40,5 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
 
