@@ -15,7 +15,7 @@ The library will consist of three main layers (see figure):
 
 * **hardware layer:** this layer is the only one communicating with the controller. Each time a new detector will be integrated in LIMA, its hardware layer will have to be coded. As some controller already manages an image buffering system, the image buffering is part of this hardware layer. For those controllers which might not support image buffering, a software image buffer will be provided. This layer provides a standard API for communications with the control layer.
 
-* **detector configuration layer:** each detector has its internal configuration settings which might be very different from one to the other. This layer will provide a way to configure all these detector specific parameters. Each detector supported by LIMA will have a specific configuration layer. Communication to the controller is done through the hardware layer interface. Typical cases: maxipix dacs settings, frelon gain settings, … These configuration parameters will not include the control parameters already supported by the common control layer. 
+* **detector configuration layer:** each detector has its internal configuration settings which might be very different from one to the other. This layer will provide a way to configure all these detector specific parameters. Each detector supported by LIMA will have a specific configuration layer. Communication to the controller is done through the hardware layer interface. Typical cases: maxipix dacs settings, frelon gain settings, ... These configuration parameters will not include the control parameters already supported by the common control layer. 
 
 .. image:: Lima_architecture_figure.jpg
 
