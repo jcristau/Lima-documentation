@@ -38,7 +38,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Lima'
-copyright = u'2011, Sébastien Petitdemange'
+copyright = u'2011, LImA team'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -173,7 +173,7 @@ htmlhelp_basename = 'Limadoc'
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
   ('index', 'Lima.tex', u'Lima Documentation',
-   u'Sébastien Petitdemange', 'manual'),
+   u'LImA team', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
