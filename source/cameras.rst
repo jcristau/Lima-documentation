@@ -6,11 +6,12 @@ Windows
 
 Linux
 ------
+
 - Simulator
 - Frelon
 
 .. toctree::
-  :maxdepth: 1
+  :maxdepth: 2
 
   camera/maxipix/doc/index
   camera/pilatus/doc/index

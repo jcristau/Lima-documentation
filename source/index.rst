@@ -12,8 +12,8 @@ Introdution
 
 LImA ( **L** ibrary for **IM** age **A** cquisition) is a project for the unified control of 2D detectors. The aim is to clearly separate hardware specific code from common software configuration and features, like setting standard acquisition parameters (exposure time, external trigger), file saving and image processing.
 
-Howto
-=====
+Getting started
+===============
 
 .. toctree::
   :maxdepth: 3
@@ -22,19 +22,6 @@ Howto
   compilation
   installation
 
-LImA specification
-==================
-
-The first LIMA project specification has been written after the previous brain storming sessions. It is composed by the following main topic
-
-.. toctree::
-  :maxdepth: 2
-
-  overview
-  control_specification
-  hardware_specification
-
-
 Supported Cameras
 =================
 
@@ -42,6 +29,28 @@ Supported Cameras
   :maxdepth: 2
 
   cameras
+
+Applications
+=======================
+
+.. toctree::
+  :maxdepth: 3
+
+  applications/tango/doc/index
+
+LImA specification
+==================
+
+The first LIMA project specification has been written after the previous brain storming sessions. It is composed by the following main topic
+
+.. toctree::
+  :maxdepth: 1
+
+  overview
+  control_specification
+  hardware_specification
+
+
 
 
 Indices and tables
