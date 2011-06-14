@@ -16,3 +16,4 @@ Linux
   camera/maxipix/doc/index
   camera/pilatus/doc/index
   camera/basler/doc/index
+  camera/prosilica/doc/index
