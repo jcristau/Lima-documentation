@@ -54,24 +54,23 @@ Every think is managed by root Makefile.
 
 Windows
 ```````
-Visual studio lima project is configured for now to run on Windows XP, It's not optimised for new threading Windows Vista or 7. If you want to optimise it, you have to remove on all project the precompilation directive _WIN32_WINNT=0x0502 (mean Windows XP SP2).
+Visual studio lima project is configured up to now to run on Windows XP, It's not optimised for new threading of Windows Vista or 7. If you want to optimise, you have to remove on all projects, the precompilation directive _WIN32_WINNT=0x0502 (mean Windows XP SP2).
 
 *Compilation Steps:*
 
-* On this platform there not automatic build.
-  You have to build all C/C++ libraries by your how with Visual Studio.
+* On this platform there is not automatic build.
+  You have to build all C/C++ libraries by your own with Visual Studio.
   Visual Studio projects are under :
 
   - third-party/Processlib/build/msvc/9.0/libprocesslib
   
   - build/msvc/9.0/LimaCore
 
-  - camera/NAME_OF_THE_CAMERA/msvc/9.0/LibNAME_OF_THE_CAMERA
+  - camera/*NAME_OF_THE_CAMERA*/msvc/9.0/Lib*NAME_OF_THE_CAMERA*
 
-  Open them one by one and compile them in that order.
+  Open projects one by one and compile them in that order.
 
-* Then at least a python script to generate and compile Python Modules ;)
-  The script is called **windowsSipCompilation.py**
+* Then use the python script called **windowsSipCompilation.py** to configure and compile Python Modules.
 
   - Module configuration:
 
@@ -91,4 +90,4 @@ Visual studio lima project is configured for now to run on Windows XP, It's not 
 **Warning** As Lima libraries are threaded, you can't mixed Release and Debug.
 You **MUST** have to compile all libraries with the same mode.
 
-**Warning** For those who make an Hardware Interface for Lima, you have to add the precompile directive _WIN32_WINNT=0x0502 to your Visual Studio project if your project use some threads.
+**Warning** For those who make a Hardware Interface for Lima, you have to add the precompile directive _WIN32_WINNT=0x0502 to your Visual Studio project if your project use some threads.
