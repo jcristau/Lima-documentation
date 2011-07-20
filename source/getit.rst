@@ -9,7 +9,7 @@ As Lima is not packaged,the only way for now is to retreived it from the git_ re
 
   seb@pcbliss01:~/$ git clone --recursive git://git.epn-campus.eu/repositories/Lima
 
-After those 4 commands, you've got the whole developpement project.
+After this command, you've got the whole developpement project.
 
 Particular version
 ``````````````````
