@@ -17,3 +17,4 @@ Linux
   camera/pilatus/doc/index
   camera/basler/doc/index
   camera/prosilica/doc/index
+  camera/roperscientific/doc/index
