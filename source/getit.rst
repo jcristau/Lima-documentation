@@ -3,7 +3,7 @@ GetIt
 
 As Lima is not packaged,the only way for now is to retreived it from the git_ repository.
 
-**The commandes:**
+**The commande:**
 
 .. code-block:: bash 
 
@@ -13,7 +13,7 @@ After this command, you've got the whole developpement project.
 
 Particular version
 ``````````````````
-On all version of LImA is tag. So you can retreive a particular version.
+On all version of LImA is tagged. So you can retreive a particular version.
 
 This command provide the tag list:
 
