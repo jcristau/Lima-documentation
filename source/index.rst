@@ -4,13 +4,13 @@
    contain the root `toctree` directive.
 
 ====
-Lima
+LImA
 ====
 
 Introdution
 ===========
 
-LImA ( **L** ibrary for **IM** age **A** cquisition) is a project for the unified control of 2D detectors. The aim is to clearly separate hardware specific code from common software configuration and features, like setting standard acquisition parameters (exposure time, external trigger), file saving and image processing.
+LImA ( **L** ibrary for **Im** age **A** cquisition) is a project for the unified control of 2D detectors. The aim is to clearly separate hardware specific code from common software configuration and features, like setting standard acquisition parameters (exposure time, external trigger), file saving and image processing.
 
 Getting started
 ===============
@@ -50,7 +50,13 @@ The first LIMA project specification has been written after the previous brain s
   control_specification
   hardware_specification
 
+Plugin developpment: Getting Started
+==================
 
+.. toctree::
+  :maxdepth: 1
+  
+  plugin_getting_started
 
 
 Indices and tables
