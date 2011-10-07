@@ -18,3 +18,4 @@ Linux
   camera/basler/doc/index
   camera/prosilica/doc/index
   camera/roperscientific/doc/index
+  camera/adsc/doc/index
