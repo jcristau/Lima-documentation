@@ -19,3 +19,6 @@ Linux
   camera/prosilica/doc/index
   camera/roperscientific/doc/index
   camera/adsc/doc/index
+  camera/mythen/doc/index
+  camera/ueye/doc/index
+
