@@ -1,2 +1,3 @@
-Plugin developpment Getting Started
---------------
+Plugin developpment
+-------------------
+
