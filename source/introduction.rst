@@ -102,11 +102,13 @@ provides basic acquisition start/stop/status control as well
 as entry points to functional blocks, corresponding to the
 hardware capabilities. Only three control blocks are
 mandatory:
+
   - Detector information: name, model, dimensions.
   - Synchronisation: internal/external trigger, exposure
-time and sequencing.
+    time and sequencing.
   - Image buffer management, for which helper
     classes are provided with a default behaviour.
+
 All the other capabilities are optional. They include:
   - Pixel binning (scaling).
   - Sub-image / region-of-interest (RoI).
@@ -114,6 +116,7 @@ All the other capabilities are optional. They include:
   - Shutter control.
   - Video cameras: standard mono/color image formats
     and gain settings.
+
 This modular design simplifies the integration of new
 hardware functionality without recoding existing
 hardware plug-ins.
@@ -136,9 +139,11 @@ is to be implemented entirely by hardware, by software or
 by a combination of both.
 It is worth to remark that to add support for a new
 detector its only required to implement:
+
   #. The detector information control block
   #. The synchronisation control block
   #. Acquisition start/stop/status control and frame-ready callbacks
+
 This can be coded either in C++ or Python. Such a
 minimal implementation will already provide the user
 with a fully operational system exporting all the common
@@ -258,6 +263,7 @@ including user-supplied meta-data, must be saved. The
 meta-data concept is called “frame-header” in LImA and
 is implemented in the core of ProcessLib as key→value
 maps. Three levels of meta-data are identified:
+
   - Static: does not change during the life of the
     process (detector-specific: model, serial number).
   - Common: is shared by all the frames in an
@@ -266,18 +272,21 @@ maps. Three levels of meta-data are identified:
   - Frame: specific information when frame was taken
     (high resolution time stamp, instantaneous internal
     and/or external counters values).
+
 There are three file saving modes currently
 implemented in LImA. They differ in the way to trigger
 the saving of each frame: manual (user request), auto-
 frame (frame is ready) and auto-header (both the frame
 and its user-defined header are ready).
 The following file formats are currently supported:
+
   - EDF: ESRF Data Format
   - Nexus/HDF5: part of the Common Data Model
     (CDM), developed by SOLEIL and ANSTO
   - CBF: Crystallographic Binary Files. It is optimised
     in LImA with parallel frame compression.
   - Raw
+
 The library also allows the parallel saving of multiple
 file streams on different medias. This data replication
 technique has proven to be efficient in high throughput
