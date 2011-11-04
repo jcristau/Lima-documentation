@@ -55,6 +55,9 @@ The first LIMA project specification has been written after the previous brain s
   control_specification
   hardware_specification
 
+`Class documentation`_
+======================
+
 Indices and tables
 ==================
 
@@ -62,4 +65,5 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
+.. _Class documentation: doxygen/html/index.html
 
