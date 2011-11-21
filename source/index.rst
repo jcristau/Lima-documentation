@@ -35,6 +35,14 @@ Supported Cameras
 
   cameras
 
+Future cameras
+========================
+
+.. toctree::
+   :maxdepth: 1
+
+   future_cameras
+
 Applications
 =======================
 
