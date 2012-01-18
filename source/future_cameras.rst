@@ -7,7 +7,6 @@ Under development
 =================
 
 - PCO
-- Perkin-Elmer
 - Andor
 - Marccd/Rayonix
 

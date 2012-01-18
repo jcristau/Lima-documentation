@@ -4,6 +4,11 @@ Windows
 - Simulator
 - PCO
 
+.. toctree::
+  :maxdepth: 2
+
+  camera/perkinelmer/doc/index
+
 Linux
 ------
 
