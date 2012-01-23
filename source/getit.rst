@@ -3,13 +3,23 @@ GetIt
 
 As Lima is not packaged,the only way for now is to retreived it from the git_ repository.
 
-**The commande:**
+**Command to get all sources:**
 
 .. code-block:: bash 
 
   seb@pcbliss01:~/$ git clone --recursive git://git.epn-campus.eu/repositories/Lima
 
-After this command, you've got the whole developpement project.
+**Commands for a minimum chekout to get all source needed for a particular camera:**
+
+.. code-block:: bash
+
+  seb@pcbliss01:~/$ git clone git://git.epn-campus.eu/repositories/Lima
+  seb@pcbliss01:~/$ cd Lima
+  seb@pcbliss01:~/Lima$ git submodule init third-party/Processlib/ third-party/Sps/
+  seb@pcbliss01:~/Lima$ git submodule init camera/CAMERA_YOU_WANT_TO_COMPILE
+  seb@pcbliss01:~/Lima$ git submodule update
+
+  
 
 Particular version
 ``````````````````
