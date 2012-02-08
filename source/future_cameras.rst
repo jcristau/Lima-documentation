@@ -7,12 +7,11 @@ Under development
 =================
 
 - PCO
-- Andor
 - Marccd/Rayonix
 
 
-Forseen
-=======
+Foreseen
+========
 
 - Aviex
 - Quantum (linear detector)
