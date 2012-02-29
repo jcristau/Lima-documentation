@@ -32,7 +32,7 @@ Every think is managed by root Makefile.
          COMPILE_ESPIA COMPILE_FRELON COMPILE_MAXIPIX COMPILE_PILATUS \
          COMPILE_CBF_SAVING
 
-* Configure all module and stuff
+* Configure all module and stuff (don't need if you just want C++ libraries)
 
 .. code-block:: sh
 
