@@ -8,6 +8,7 @@ Windows
   :maxdepth: 2
 
   camera/perkinelmer/doc/index
+  camera/pco/doc/index
 
 Linux
 ------
