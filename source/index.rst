@@ -25,7 +25,6 @@ Getting started
   getit
   compilation
   installation
-  plugin_getting_started
 
 Supported Cameras
 =================
@@ -51,6 +50,14 @@ Applications
 
   applications/tango/doc/index
 
+Camera plugin developer guide
+===================================
+
+.. toctree::
+  :maxdepth: 3
+
+  plugin_getting_started/index
+   
 LImA specification
 ==================
 
@@ -74,4 +81,3 @@ Indices and tables
 * :ref:`search`
 
 .. _Class documentation: doxygen/html/index.html
-
