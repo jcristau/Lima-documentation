@@ -7,13 +7,13 @@ As Lima is not packaged,the only way for now is to retreived it from the git_ re
 
 .. code-block:: bash 
 
-  seb@pcbliss01:~/$ git clone --recursive git://git.epn-campus.eu/repositories/Lima
+  seb@pcbliss01:~/$ git clone --recursive git://github.com/esrf-bliss/Lima.git
 
 **Commands for a minimum chekout to get all source needed for a particular camera:**
 
 .. code-block:: bash
 
-  seb@pcbliss01:~/$ git clone git://git.epn-campus.eu/repositories/Lima
+  seb@pcbliss01:~/$ git clone git://github.com/esrf-bliss/Lima.git
   seb@pcbliss01:~/$ cd Lima
   seb@pcbliss01:~/Lima$ git submodule init third-party/Processlib third-party/Sps
   seb@pcbliss01:~/Lima$ git submodule init camera/CAMERA_YOU_WANT_TO_COMPILE
