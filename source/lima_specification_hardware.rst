@@ -1,5 +1,6 @@
 Hardware Layer
 --------------
+--------------
 
 The hardware interface implementing specific detector control 
 
@@ -57,7 +58,7 @@ The getStatus() function shoud return the following information:
 |		| bits that are supported by the hardware	|
 +---------------+-----------------------------------------------+
 
-.. image:: HW_img.jpg
+.. image:: lima_specification/HW_img.jpg
 
 
 Basic (Standard) Capabilities

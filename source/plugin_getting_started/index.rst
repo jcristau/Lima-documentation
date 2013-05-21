@@ -3,44 +3,21 @@
 Camera plugin developer guide
 --------------------------------
 
+Plugin Documentation
+====================
 
+Documentation
+-------------
 
-Introduction
-============
-LIMA: Library for IMage Acquisition is a C++ framework for the control of 2D detectors. LIMA currently supports different detectors:
+Plugin documentation must be located in "Lima/camera/dectector/name/doc". It is composed of at least an "index.rst" file which contains informations to install, configure and implement a camera plugin. The presence of this documentation is required to share a plugin with Lima community.
 
-Working:
+Plugins documentation is available in the section "Supported Cameras".
 
-* Basler: Ace, Scout, Pilot
-* Pilatus
-* ADSC
-* Andor
-* Prosilica
-* Xpad
-* Frelon
-* Maxipix
-* Mythen
-* Ueye
-* Roper scientific (princeton)
-* PhotonicScience
-* PerkinElmer
-* PCO (Edge)
+The table below describes informations taht must be present in the index file :
 
-Work in progress:
-
-* Andor3 (with sdk V3)
-* MarCCD (SX 165)
-
-Planned:
-
-* Aviex
-* Quantum
-* Eiger
-* Xtrip
-
-
-In order to control/command a new detector using LIMA, a new camera plug-in must be created.
-
+	.. image:: documentation.png
+	
+	
 Architecture
 ============
 
@@ -211,6 +188,50 @@ From the Hardware Layer point of view, the standard capability control object mu
 * setFrameCallbackActive(bool cb_active) 
 * frameReady(<callback_frame_info>) 
 
+Developer guidelines
+====================
+This chapter provides general guidelines to follow, to share a plugin with the **LIMA** community.
+
+Source code
+-----------
+
+ - **Plug-ins directory**
+  The source files and documentation of each new plug-in must be located under Lima/Camera as shown figure below. 
+  
+   .. image:: plugin_arbo.png
+   
+   To maintain homogeneity between the different plug-ins, each plug-in must have at minimum the following folders: 
+   
+  - **src** : contains the source files. Plug-ins must be developed in C++.
+  
+   The "src" folder must contain the following files :
+    - DetectorNameCamera.cpp : interface class with the detector librairies **(mandatory)**
+    - DetectorNameInterface.cpp : interface class between detector capabilities from the hardware interface and the control layer **(mandatory)**
+    - DetectorNameDetInfoCtrObj.cpp : capabilities to get static informations about the detector **(mandatory)**
+    - DetectorNameBufferCtrlObj.cpp : capabilities to control the image memory buffer allocation **(mandatory)**
+    - DetectorNameSyncCtrlObj.cpp : capabilities to control the image memory buffer allocation **(mandatory)**
+    - DetectorNameRoiCtrlObj.cpp : capabilities to get a ROI **(optional)**
+    - DetectorNameBinCtrlObj.cpp : capabilities to make pixel binning **(optional)**
+    - DetectorNameVideoCtrlObj.cpp : capabilities to make video mode only for non-scientific detectors **(optional)**
+    - DetectorNameShutterCtrlObj.cpp : capabilities to control shutter **(optional)**
+    - DetectorNameFlipCtrlObj.cpp : capabilities to flip image **(optional)**
+    - DetectorNameEventCtrlObj.cpp : capabilities to generate event **(optional)**
+    - DetectorNameSavingCtrlObj.cpp : capabilities to save images in different formats **(optional)**
+	
+   **If optional capabilities are not defined, they are emulated by the Lima Core.**
+  
+  - **include** : contains the header files relative to the sources files described before.
+  - **doc** : contains at least "index.rst" for plug-in documentation. Other files such as image can be added. The minimum content of the index file is detailed in the documentation section.	
+  - **Other** : Other folders can be added based on need. The contents of this file must be described in the documentation.
+   
+ - **Camera device**
+  Once the plug-in was developed, you must create a camera device to execute all commands on the camera. This device can be developed in Python or C++. Python devices must be located on "Lima/applications/tango/camera", C++ devices on "Lima/applications/tango/LimaDetector"
+  
+  It is recommended that the camera device comply with the design guidelines of a TANGO device. These few rules are described below :
+  
+  - **Tango design guidelines**
+   
+    In order to enhance the general software quality of Device Servers developed by the various institutes using Tango, a Design and Implementation Guidelines document has been written by SOLEIL. This document can be downloaded form thr URL : `http://www-controle.synchrotron-soleil.fr:8001/docs/TangoGuidelines/TangoDesignGuidelines-GB4-3.pdf `
 
 Development of a new camera plug-in
 ======================================

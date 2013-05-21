@@ -14,28 +14,45 @@ Overview
 .. toctree::
   :maxdepth: 3
 
-  introduction
+  overview
+  
+LImA specification
+------------------
 
-Getting started
-===============
+The first LIMA project specification has been written after the previous brain storming sessions. It is composed by the following main topic
+
+.. toctree::
+  :maxdepth: 1
+
+  lima_specification_overview
+  lima_specification_control
+  lima_specification_hardware
+
+.. _compilation:
+
+.. _installation:
+
+Installation
+------------
 
 .. toctree::
   :maxdepth: 3
 
-  getit
-  compilation
-  installation
+
+  install_windows
+  install_linux
+  install_tango_device_server
 
 Supported Cameras
-=================
+-----------------
 
 .. toctree::
   :maxdepth: 2
 
-  cameras
+  supported_cameras
 
 Future cameras
-========================
+--------------
 
 .. toctree::
    :maxdepth: 1
@@ -43,7 +60,7 @@ Future cameras
    future_cameras
 
 Applications
-=======================
+------------
 
 .. toctree::
   :maxdepth: 3
@@ -51,30 +68,18 @@ Applications
   applications/tango/doc/index
 
 Camera plugin developer guide
-===================================
+-----------------------------
 
 .. toctree::
   :maxdepth: 3
 
   plugin_getting_started/index
-   
-LImA specification
-==================
-
-The first LIMA project specification has been written after the previous brain storming sessions. It is composed by the following main topic
-
-.. toctree::
-  :maxdepth: 1
-
-  overview
-  control_specification
-  hardware_specification
 
 `Class documentation`_
-======================
+----------------------
 
 Indices and tables
-==================
+------------------
 
 * :ref:`genindex`
 * :ref:`modindex`

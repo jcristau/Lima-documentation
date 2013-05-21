@@ -349,4 +349,4 @@ The parameters read from this function are:
 
 Software Operations and Status flow chart
 `````````````````````````````````````````
-.. image:: LIMAControlLayer_flowchart.png
+.. image:: lima_specification/LIMAControlLayer_flowchart.png
