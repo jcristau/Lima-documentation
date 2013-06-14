@@ -3,16 +3,18 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-====
-LImA
-====
-LImA ( **L** ibrary for **Im** age **A** cquisition) is a project for the unified control of 2D detectors. The aim is to clearly separate hardware specific code from common software configuration and features, like setting standard acquisition parameters (exposure time, external trigger), file saving and image processing.
+====================================
+LIMA : Library for Image Acquisition
+====================================
+Lima ( **L** ibrary for **Im** age **A** cquisition) is a project for the unified control of 2D detectors. The aim is to clearly separate hardware specific code from common software configuration and features, like setting standard acquisition parameters (exposure time, external trigger), file saving and image processing.
+
+A PDF version of this documentation is available: `pdf documentation`_
 
 Overview
 --------
 
 .. toctree::
-  :maxdepth: 3
+  :maxdepth: 2
 
   overview
   
@@ -55,7 +57,7 @@ Future cameras
 --------------
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    future_cameras
 
@@ -86,3 +88,6 @@ Indices and tables
 * :ref:`search`
 
 .. _Class documentation: doxygen/html/index.html
+
+.. _pdf documentation: ../latex/Lima.pdf
+

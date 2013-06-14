@@ -1,13 +1,5 @@
-
---------------------------------
-Camera plugin developer guide
---------------------------------
-
 Plugin Documentation
 ====================
-
-Documentation
--------------
 
 Plugin documentation must be located in "Lima/camera/dectector/name/doc". It is composed of at least an "index.rst" file which contains informations to install, configure and implement a camera plugin. The presence of this documentation is required to share a plugin with Lima community.
 
@@ -16,6 +8,7 @@ Plugins documentation is available in the section "Supported Cameras".
 The table below describes informations taht must be present in the index file :
 
 	.. image:: documentation.png
+           :scale: 90
 	
 	
 Architecture

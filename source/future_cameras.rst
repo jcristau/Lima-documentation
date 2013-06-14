@@ -6,17 +6,22 @@ During the coming year, several new detector plugins will be available.
 Under development
 =================
 
-- PCO
-- Marccd/Rayonix
+- Andor3
+- Dexela (PerkinHelmer)
+- Rayonix HS (Rayonix)
+- SVCam HR (SVS-Vistek)
+- Xh, x-strip (HTFC)
+- Xpad3 (ImXPAD)
 
 
 Foreseen
 ========
 
-- Aviex
+- Aviex + Espia board (ESRF)
 - Quantum (linear detector)
-- Princeton
+- Mythen 2 (Dectris)
+- PCO 4000 (PCO)
+- Pilatus3 (Dectris)
+- Princeton (RoperScientic)
 - Eiger (PSI/Dectris)
-- Aviex Espia board 
-- Sarnoff and Dalsa Espia board 
-- Xtrip (linear detector)
+- Sarnoff and Dalsa + Espia board  (ESRF)
