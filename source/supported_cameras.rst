@@ -24,6 +24,7 @@ Linux only
   camera/prosilica/doc/index
   camera/ueye/doc/index
   camera/xpad/doc/index
+  camera/marccd/doc/index
 
 Windows and Linux
 ==================
