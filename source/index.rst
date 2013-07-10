@@ -45,6 +45,14 @@ Installation
   install_linux
   install_tango_device_server
 
+Howto contribute
+----------------
+
+.. toctree::
+  :maxdepth: 3
+
+  howto_contribute
+
 Supported Cameras
 -----------------
 

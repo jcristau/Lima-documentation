@@ -181,6 +181,8 @@ From the Hardware Layer point of view, the standard capability control object mu
 * setFrameCallbackActive(bool cb_active) 
 * frameReady(<callback_frame_info>) 
 
+.. _guidelines:
+
 Developer guidelines
 ====================
 This chapter provides general guidelines to follow, to share a plugin with the **LIMA** community.
