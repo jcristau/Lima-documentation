@@ -1,5 +1,5 @@
-Control Layer
---------------
+Control Layer Detailed
+----------------------
 The common software control layer, providing unique client interface
 
 Overview

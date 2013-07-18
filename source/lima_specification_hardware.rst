@@ -1,5 +1,5 @@
-Hardware Layer
---------------
+Hardware Layer Detailed
+-----------------------
 
 The hardware interface implementing specific detector control 
 

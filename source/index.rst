@@ -10,25 +10,7 @@ Lima ( **L** ibrary for **Im** age **A** cquisition) is a project for the unifie
 
 A PDF version of this documentation is available: `pdf documentation`_
 
-Overview
---------
-
-.. toctree::
-  :maxdepth: 2
-
-  overview
-  
-LImA specification
-------------------
-
-The first LIMA project specification has been written after the previous brain storming sessions. It is composed by the following main topic
-
-.. toctree::
-  :maxdepth: 1
-
-  lima_specification_overview
-  lima_specification_control
-  lima_specification_hardware
+Project's Specification is available :ref:`spec`
 
 .. _compilation:
 
