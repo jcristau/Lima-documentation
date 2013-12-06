@@ -1,29 +1,18 @@
-Plugin Documentation
-====================
+.. _guidelines:
 
-Plugin documentation must be located in "Lima/camera/dectector/name/doc". It is composed of at least an "index.rst" file which contains informations to install, configure and implement a camera plugin. The presence of this documentation is required to share a plugin with Lima community.
-
-Plugins documentation is available in the section "Supported Cameras".
-
-The table below describes informations taht must be present in the index file :
-
-	.. image:: documentation.png
-           :scale: 90
-	
-	
-Architecture
-============
+Understand the plugin architecture
+===================================
 
 Library structure
 ------------------
 
-The library structure divided into two main layers: control, containing the common control and processing code, and hardware, implementing the detector-specific part.
+The library structure is divided into two main layers: the control, containing the common control and processing code, and the hardwarewhich is implementing the detector-specific part.
 The control layer provides the library interface to the high level application. User requests to configure and control the acquisition are gathered by the control layer,
 so the hardware layer functionality is limited to the generation the image frames in a best-effort basis. The control layer is responsible of: 
 i) adapting the received image geometry if it does not match the user requests, and ii) execute the frame processing chain.
 
-Understanding the generic Interface
-------------------------------------
+Generic Interface
+------------------
 
 The Hardware Layer defines the interface between the Control Layer and the controller library. It provides the minimal functionality needed for the Control Layer to
 satisfy the user requests. 
@@ -35,7 +24,13 @@ The capabilities can be grouped in three categories:
 2. Extended\*: optional common features like image transformations (binning, RoI, flip), advanced acquisition modes (kinetics, frame transfer), and extended mechanisms (camera serial line)
 3. Specific\*: these are detector-specific features that can not be treated in a generic interface
 
-Hardware Interface << HwInterface>>
+As a camera plugin developer your main job will consist in writting the code for the HwInterface class and its depending classes (.e.g the capabilities classes). The figure 1 illustrates the class relationships:
+ 
+.. figure:: client_interface.png
+
+Figure 1.
+
+Hardware Interface: HwInterface
 -----------------------------------
 
 As an interface to the Control Layer, this class exports the capabilities provided by the hardware: 
@@ -66,34 +61,45 @@ DetStatus        Compound bit flags specifying the current detector status:
 DetStatusMask    A mask specifying the detector status bits that are supported by the hardware
 =============== ============
 
-
 .. figure:: hw_interface.jpg
    
-   Figure 1.
+   Figure 2.
    
 Standard Capabilities
 ----------------------
 
-These capabilities are mandatory for all the detectors. They define the minimum functionality necessary for image acquisition. 
+These capabilities are mandatory for all the detectors. They define the minimum functionality necessary for image acquisition.
+Three capability classes (DetInfo, Sync and BuffCtrl) are listed below with their set/get methods which have to be provided within the
+new camera plugin code. 
 
-Detector Information <<HwDetInfoCtrlObj>>
+Detector Information: HwDetInfoCtrlObj
 ``````````````````````````````````````````````
 
 This capability returns static information about the detector and the current image dimension. 
 
-=============== ======================================================================================================
-Parameters       Description
-=============== ======================================================================================================
-MaxImageSize     Maximum size of the image
-DefImageType     Default data type of image (ushort, ulong, ...)
-CurrImageSize    Current maximum size of the image, excluding binning and RoI. This is a read-only parameter
-CurrImageType    Data type of image (ushort, ulong, ...)
-PixelSize        Physical size of pixels (in micrometre)
-DetectorType     Type of the detector (Frelon, Maxipix, ...)
-DetectorModel    Model of the detector
-=============== ======================================================================================================
+===================== ======================================================================================================
+Parameters            Description
+===================== ======================================================================================================
+getMaxImageSize       Maximum size of the image
+getDetectorImageSize  Size of the detector image, it is always equal or greater than the MaxImageSize
+getDefImageType       Default data type of image (ushort, ulong, ...)
+getCurrImageSize      Current maximum size of the image, excluding binning and RoI
+getCurrImageType      Data type of image (ushort, ulong, ...)
+getPixelSize          Physical size of pixels (in mm)
+getDetectorType       Type of the detector (Frelon, Maxipix, ...)
+getDetectorModel      Model of the detector
+===================== ======================================================================================================
 
-Synchronization << HwSyncCtrlObj >> 
+In addition to those parameters two more methods have to be implemented  for a callback function:
+
+* registerMaxImageSizeCallback
+* unregisterMaxImageSizeCallback
+
+This callback function is to inform the Lima library hardware layer of a change of the detector maximum image size.This change
+can happen with some detectors which can be reconfigured with a different geometry. This camera capability is **NOT** a Roi **nor**
+a Bin capability. For instance, the maxipix detector is a mosaic of several individual sensor chips and it can be configured and reconfigured with different geometries according to user needs. A 2x2 maxipix detector can be configured in a 1x1 geometry.
+
+Synchronization: HwSyncCtrlObj
 ``````````````````````````````````````````````
 
 This capability return/set acquisition parameters.
@@ -102,39 +108,19 @@ This capability return/set acquisition parameters.
 ================ ======================================================================================================
 Parameters       Description
 ================ ======================================================================================================
-AcqNbFrames      Number of frames to acquire. This defines an acquisition sequence. If set to 0, endless acquisition
-
-AcqExposureTime  Frame exposure time                                                                        
-LatencyTime      Latency time between frames
-AcqFrameMode     Acquisition frame mode:
-                   * Single: default standard mode
-                   * Accumulation: one frame is an accumulation of multiple frames 
-                   * Concatenation: one frame is a concatenation of several frames
-AccNbFrames      in case of AcqFraeMode==Accumulation only:
-                 sets the number of accumulated sub-frames. This automatically update AccExposureTime. 
-AccExposureTime  in case of AcqFrameMode==Accumulation only:
-                 sets the exposure time for each sub-frame. This automatically update NbAccFrames.
-ConcatNbFrames   in case of AcqFrameMode==Concatenation only
-                 sets the number of concatenated sub-frame to define one ready frame. The total number of frame to 
-                 acquire is still set by AcqNbFrames
-TriggerMode      Triggering mode:
+set/getExpTime   Frame exposure time                                                                        
+set/getLatTime   Latency time between frames
+checkTrigMode    A check method which returns True/False for the supported trigger modes
+set/getTrigMode  Triggering mode:
                    * Internal: software triggering 
                    * ExtStart: one external signal to start the whole sequence acquisition (one or more frames per 
                      sequence) 
                    * MultExtStart: one external signal for each frame in the acquisition sequence 
                    * Gate: controls start and stop of each frame 
                    * ExtStartStop: one start signal to start acquisition of one frame and one signal to stop it
-ShutterMode      External Shutter mode: 
-                   * Manual 
-                   * AutoPerFrame: shutter automatically open and close for each frame 
-                   * AutoPerSequence: shutter automatically open at the beginning of a sequence and close at the end
-ShutterOpenTime  Opening time of the shutter
-ShutterCloseTime Closing time of the shutter
-ReadoutTime      Read-Only frame readout time
-FrameRate        Read-Only frame rate in Hz
 ================ ======================================================================================================
 
-Buffer Management << HwBufferCtrlObj >>
+Buffer Management: HwBufferCtrlObj
 ``````````````````````````````````````````````
 
 This block controls the image memory buffer allocation and management. They are used: 
@@ -161,8 +147,12 @@ The buffer manager must also provide the following methods:
 * getFramePtr(int acq_frame_nb) 
 * getFrameTimeStamp(int acq_frame_nb) 
 
+In most of simple cases, one just need to create a **SoftBufferCtrlObj** class instance within the Camera class instance
+to store the frames. A good example of a simple implementation is available in the Andor camera plugin code.
+
+
 Frame callback
-``````````````````````````````````````````````
+```````````````
 
 The hardware must provide callbacks after each acquired frame. The callback function should receive the following information: 
 
@@ -181,10 +171,10 @@ From the Hardware Layer point of view, the standard capability control object mu
 * setFrameCallbackActive(bool cb_active) 
 * frameReady(<callback_frame_info>) 
 
-.. _guidelines:
 
-Developer guidelines
-====================
+Organize the source code
+===============================
+
 This chapter provides general guidelines to follow, to share a plugin with the **LIMA** community.
 
 Source code
@@ -228,56 +218,6 @@ Source code
    
     In order to enhance the general software quality of Device Servers developed by the various institutes using Tango, a Design and Implementation Guidelines document has been written by SOLEIL. This document can be downloaded form thr URL : `http://www-controle.synchrotron-soleil.fr:8001/docs/TangoGuidelines/TangoDesignGuidelines-GB4-3.pdf `
 
-Development of a new camera plug-in
-======================================
-
-For each new type of detector **detectorname**, a camera plug-in must be created and added to Lima.
-The integration of **detectorname** plug-in in Lima is done in several stages:
-
-Add source files of the plug-in to the Lima project
-----------------------------------------------------
-
-The source files of each plug-in are located under Lima/camera directory as shown in Figure 2
-
-.. figure:: dir_structure.png
-   
-   Figure 2.
-   
-Filenames
-------------
-
-To maintain homogeneity between the different plug-ins, each plug-in must have at minimum the following files:
-DetectorNameCamera.cpp 	(to put in the subdirectory src/)
-DetectorNameCamera.h 	(to put in the subdirectory include/)
-
-DetectorNameInterface.cpp 	(to put in the subdirectory src/)
-DetectorNameInterface.h 	(to put in the subdirectory include/)
-
-Additionally, there could be others files depending of the camera capabilities. Here is the nomenclature to follow:
-
-For Sync capability: (trigger types\.\.\.)
-
-DetectorNameSyncCtrlObj.cpp 	(to put in the subdirectory \src)
-DetectorNameSyncCtrlObj.h 		(to put in the subdirectory \include)
-
-For Det Info capability: (image size, pixel size\.\.\.)
-
-DetectorNameDetInfoCtrlObj.cpp 	(to put in the subdirectory \src)
-DetectorNameDetInfoCtrlObj.h 	(to put in the subdirectory \include)
-
-For Roi capability:
-
-DetectorNameRoiCtrlObj.cpp 		(to put in the subdirectory \src)
-DetectorNameRoiCtrlObj.h 		(to put in the subdirectory \include)
-
-For Binning capability:
-
-DetectorNameBinCtrlObj.cpp 		(to put in the subdirectory \src)
-DetectorNameBinCtrlObj.h 		(to put in the subdirectory \include)
-
-
-Of course, there can also be other files source for specific cases.
-
 Class names
 ------------
 
@@ -293,8 +233,8 @@ Again, to maintain homogeneity, it is recommended to follow this nomenclature fo
  
 As an example, one can look at the Prosilica plugin for a real implementation or at the simulator plugin for a implementation model.
 
-Use the Interface:  client side
---------------------------------
+How to test the new plugin with python
+-----------------------------------------
 
 In order to communicate with the underlying detector hardware, the lima client must instantiate the main object of the framework Lima: CtControl.
 To be instantiated, the CtControl requires an interface inherited from common HwInterface.
@@ -358,11 +298,22 @@ With the Andor camera one can set the cooling as:
    current_temp = Camera.getTemperature()
 
 
+
 The Lima project code provides some client application based on TANGO protocol for the remote access.
 One can find a python implementation under applications/tango and a C++ version in applications/tango/LimaDetector.
 The python server has been developed at ESRF and being used on lot of beamlines and the C++ server is the SOLEIL version which is also used on beamlines.
 
-The python server interface has a documentation available at lima.blissgarden.org (applications/tango/doc/index.html).
+The LimaCCDs python server has its own documentation here: http://lima.blissgarden.org/applications/tango/doc/index.html .
 
+Do not forget to write a documentation
+========================================
 
-.. figure:: client_interface.png
+Plugin documentation must be located in "Lima/camera/dectector/name/doc". It is composed of at least an "index.rst" file which contains informations to install, configure and implement a camera plugin. The presence of this documentation is required to share a plugin with Lima community.
+
+Plugins documentation is available in the section "Supported Cameras".
+
+The table below describes informations taht must be present in the index file :
+
+        .. image:: documentation.png
+           :scale: 90
+
