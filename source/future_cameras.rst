@@ -1,5 +1,7 @@
 
-ESRF, SOLEIL, DESY and ALBA are working on the integration of new cameras.
+We have many contributors now for new camera plugins, main but not the least are:
+  ESRF, SOLEIL, DESY, ALBA, FRMII, ANKA.
+
 During the coming year, several new detector plugins will be available.
 
 
@@ -8,10 +10,13 @@ Under development
 
 - Andor3
 - Dexela (PerkinHelmer)
+- Imxpad (ImXPAD)
+- Pixirad (INFN)
 - Rayonix HS (Rayonix)
 - SVCam HR (SVS-Vistek)
-- Xh, x-strip (HTFC)
-- Xpad3 (ImXPAD)
+- Vieworks
+- Xh, x-strip (STFC)
+- Xspress3 (STFC)
 
 
 Foreseen
@@ -20,8 +25,5 @@ Foreseen
 - Aviex + Espia board (ESRF)
 - Quantum (linear detector)
 - Mythen 2 (Dectris)
-- PCO 4000 (PCO)
-- Pilatus3 (Dectris)
-- Princeton (RoperScientic)
 - Eiger (PSI/Dectris)
 - Sarnoff and Dalsa + Espia board  (ESRF)
