@@ -29,6 +29,7 @@ Linux only
   camera/xpad/doc/index
   camera/xpress3/doc/index
   camera/xh/doc/index
+  camera/aviex/doc/index
 
 Windows and Linux
 ==================
