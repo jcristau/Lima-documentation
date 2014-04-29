@@ -8,15 +8,11 @@ During the coming year, several new detector plugins will be available.
 Under development
 =================
 
-- Andor3
-- Dexela (PerkinHelmer)
+- Eiger (Dectris)
 - Imxpad (ImXPAD)
 - Pixirad (INFN)
-- Rayonix HS (Rayonix)
 - SVCam HR (SVS-Vistek)
 - Vieworks
-- Xh, x-strip (STFC)
-- Xspress3 (STFC)
 
 
 Foreseen
@@ -25,5 +21,5 @@ Foreseen
 - Aviex + Espia board (ESRF)
 - Quantum (linear detector)
 - Mythen 2 (Dectris)
-- Eiger (PSI/Dectris)
+- Eiger (PSI)
 - Sarnoff and Dalsa + Espia board  (ESRF)
