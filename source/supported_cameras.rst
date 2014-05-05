@@ -26,7 +26,6 @@ Linux only
   camera/marccd/doc/index
   camera/maxipix/doc/index
   camera/mythen/doc/index
-  camera/perkinelmer/doc/index
   camera/pilatus/doc/index
   camera/pointgrey/doc/index
   camera/prosilica/doc/index
