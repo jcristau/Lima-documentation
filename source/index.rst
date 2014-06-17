@@ -12,6 +12,10 @@ A PDF version of this documentation is available: `pdf documentation`_
 
 Project's Specification is available :ref:`spec`
 
+If you want to be in touch with LIMA community, please send email to lima@esrf.fr. You can also subscribe to the mail-list by sending
+a message to sympa@esrf.fr with as subject *subscribe lima*.
+
+
 .. _compilation:
 
 .. _installation:

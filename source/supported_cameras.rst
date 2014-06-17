@@ -5,7 +5,7 @@ Windows Only
   :maxdepth: 2
 
 
-  camera/dexela/doc/index
+  Dexela <camera/dexela/doc/index>
   camera/perkinelmer/doc/index
   camera/pco/doc/index
   camera/roperscientific/doc/index
@@ -18,23 +18,24 @@ Linux only
 .. toctree::
   :maxdepth: 2
 
-  camera/adsc/doc/index
-  camera/andor/doc/index
-  camera/andor3/doc/index
-  camera/aviex/doc/index
-  camera/frelon/doc/index
-  camera/marccd/doc/index
-  camera/maxipix/doc/index
-  camera/mythen/doc/index
-  camera/pilatus/doc/index
-  camera/pointgrey/doc/index
-  camera/prosilica/doc/index
-  camera/rayonixhs/doc/index
-  camera/ueye/doc/index
-  camera/ultra/doc/index
-  camera/xpad/doc/index
-  camera/xspress3/doc/index
-  camera/xh/doc/index
+  Adsc <camera/adsc/doc/index>
+  
+  Andor SDK2 <camera/andor/doc/index>
+  Andor SDK3 <camera/andor3/doc/index>
+  Aviex <camera/aviex/doc/index>
+  Frelon <camera/frelon/doc/index>
+  Maxipix <camera/maxipix/doc/index>
+  Dectris Mythen <camera/mythen/doc/index>
+  Dectris Pilatus 2 & 3  <camera/pilatus/doc/index>
+  PointGrey <camera/pointgrey/doc/index>
+  Prosilica <camera/prosilica/doc/index>
+  Rayonix MarCCD <camera/marccd/doc/index>
+  Rayonix HS <camera/rayonixhs/doc/index>
+  Ueye <camera/ueye/doc/index>
+  Ultra <camera/ultra/doc/index>
+  Xpad <camera/xpad/doc/index>
+  Xspress3 <camera/xspress3/doc/index>
+  Xh <camera/xh/doc/index>
 
 Windows and Linux
 ==================
@@ -42,5 +43,5 @@ Windows and Linux
 .. toctree::
   :maxdepth: 2
 
-  camera/basler/doc/index
-  camera/simulator/doc/index
+  Basler <camera/basler/doc/index>
+  Simulator <camera/simulator/doc/index>
