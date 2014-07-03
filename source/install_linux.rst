@@ -5,13 +5,13 @@ Linux
 
 Prerequisite
 ````````````
-Before installing Lima on Linux plateform, you need to install the following tools :
+Before installing Lima on Linux plateform, you need to install the following packages :
 
-	- Python 2.6 or more recent.
-	- GCC.
-	- Git.
-
-.. _linux_installation:
+	- Python 2.6 or more recent
+	- GCC
+	- Git
+	- Gnu Scientific Library, libgsl is available within most of the linux flavour
+	- sip tool (version >=4.2), used for generating the python binding
 
 GetIt
 `````
@@ -119,11 +119,12 @@ Every think is managed by root Makefile.
 
 **That's all folks ;)**
   
+.. _linux_installation:
+
 Installation
 ````````````
 Installation on Linux is pretty easy because it's manage by Makefile.
-But those Makefile can only be used if you have compile everything including Python modules. Otherwise It'll failed.
-See :ref:`linux_compilation`
+But those Makefile can only be used if you have compile everything including Python modules. Otherwise It'll failed. See :ref:`linux_compilation`
 
 .. code-block:: sh
 
@@ -131,5 +132,15 @@ See :ref:`linux_compilation`
 
 you can specify the destination path with this variable **INSTALL_DIR**
 
-By the way, this command only install C++ libraries and Python module, :ref:`tango_installation` is an other step.
+With your new installation you may need to update your environment for both python and library paths:
+
+.. code-block:: sh
+
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<my-new-install-dir>/Lima
+  
+  export PYTHON_PATH=$PYTHON_PATH:<my-new-install-dir>/Lima/<platform>/lib
+
+
+
+**WARNING**: *"make install"* only installed C++ libs and python modules, the application like the python Tango server (LimaCCDs) code remains under applications/tango. Please go to :ref:`tango_installation` for further instructions.
 

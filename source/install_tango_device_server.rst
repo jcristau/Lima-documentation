@@ -18,6 +18,9 @@ As Tango server is provied as python script, you just have to copy the applicati
 - **LimaCCDs.py file:** python script to start Lima device server
 - **LimaViewer.py file:** python script to start LimaViewer device server to get image from Lima device server
 
+**Warning**: be sure your environment is properly set for python and library paths, see  :ref:`linux_installation` for more information.
+
+
 Example of plugin server setup : Basler detector
 ````````````````````````````````````````````````
 
