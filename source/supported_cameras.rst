@@ -27,6 +27,7 @@ Linux only
   Maxipix <camera/maxipix/doc/index>
   Dectris Mythen <camera/mythen/doc/index>
   Dectris Pilatus 2 & 3  <camera/pilatus/doc/index>
+  imXPAD <camera/imxpad/doc/index>
   PointGrey <camera/pointgrey/doc/index>
   Prosilica <camera/prosilica/doc/index>
   Rayonix MarCCD <camera/marccd/doc/index>
