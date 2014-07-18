@@ -136,9 +136,9 @@ With your new installation you may need to update your environment for both pyth
 
 .. code-block:: sh
 
-  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<my-new-install-dir>/Lima
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<my-new-install-dir>/Lima/lib
   
-  export PYTHON_PATH=$PYTHON_PATH:<my-new-install-dir>/Lima/<platform>/lib
+  export PYTHONPATH=$PYTHONPATH:<my-new-install-dir>
 
 
 
