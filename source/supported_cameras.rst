@@ -25,6 +25,7 @@ Linux only
   Aviex <camera/aviex/doc/index>
   Frelon <camera/frelon/doc/index>
   Maxipix <camera/maxipix/doc/index>
+  Dectris Eiger <camera/eiger/doc/index>
   Dectris Mythen <camera/mythen/doc/index>
   Dectris Pilatus 2 & 3  <camera/pilatus/doc/index>
   imXPAD <camera/imxpad/doc/index>

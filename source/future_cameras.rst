@@ -8,7 +8,6 @@ During the coming year, several new detector plugins will be available.
 Under development
 =================
 
-- Eiger (Dectris)
 - Imxpad (ImXPAD)
 - Pixirad (INFN)
 - SVCam HR (SVS-Vistek)
