@@ -5,8 +5,9 @@ Linux
 
 Prerequisite
 ````````````
-Before installing Lima on Linux plateform, you need to install the following packages :
+Before installing Lima on Linux platform, you need to install the following packages:
 
+        - cmake
 	- Python 2.6 or more recent
 	- GCC
 	- Git
@@ -19,7 +20,7 @@ As Lima is not packaged,the only way for now is to retreived it from the git rep
 
 **Command to get all sources:**
 
-.. code-block:: bash 
+.. code-block:: bash
 
   seb@pcbliss01:~/$ git clone --recursive git://github.com/esrf-bliss/Lima.git
 
@@ -35,7 +36,7 @@ As Lima is not packaged,the only way for now is to retreived it from the git rep
 
 Particular version
 ``````````````````
-On all version of LImA is tagged. So you can retreive a particular version.
+All versions of LImA are tagged. So you can retreive a particular version.
 
 This command provide the tag list:
 
@@ -61,7 +62,7 @@ This command provide the tag list:
   tango-common-1.0.5
   tango-common-1.0.6
 
-Let's say that you want the version 1.0.11 of Lima core with this command, you'll getit:
+Let's say that you want the version 1.0.11 of Lima core with this command, you'll get it:
 
 .. code-block:: bash
 
@@ -75,72 +76,45 @@ Let's say that you want the version 1.0.11 of Lima core with this command, you'l
 
 Compilation
 ```````````
-Every think is managed by root Makefile. 
+The build is managed by the toplevel CMakeLists.txt.
 
-* So first generate the config.inc file.
+* First make a build directory, cd to it and run the cmake config tool:
+
+.. code-block:: sh
+
+  mkdir build && cd build && ccmake ..
+
+* Configure the modules you want to build
+
+* Finally compile all C++ libraries (and python modules, if selected)
 
 .. code-block:: sh
 
   make
-
-* Edit the configuration file **config.inc** 
-
-.. code-block:: sh
-
-  COMPILE_CORE=1
-  COMPILE_SIMULATOR=1
-  COMPILE_SPS_IMAGE=1
-  COMPILE_ESPIA=0
-  COMPILE_FRELON=0
-  COMPILE_MAXIPIX=0
-  COMPILE_PILATUS=0
-  COMPILE_CBF_SAVING=0
-  export COMPILE_CORE COMPILE_SPS_IMAGE COMPILE_SIMULATOR \
-         COMPILE_ESPIA COMPILE_FRELON COMPILE_MAXIPIX COMPILE_PILATUS \
-         COMPILE_CBF_SAVING
-
-* Configure all module and stuff (don't need if you just want C++ libraries)
-
-.. code-block:: sh
-
-  make config
-
-* Finally compile all C++ libraries
-
-.. code-block:: sh
-
-  make
-
-* If you need Python modules
-
-.. code-block:: sh
-
-  make -C sip -j3
 
 **That's all folks ;)**
-  
+
 .. _linux_installation:
 
 Installation
 ````````````
-Installation on Linux is pretty easy because it's manage by Makefile.
-But those Makefile can only be used if you have compile everything including Python modules. Otherwise It'll failed. See :ref:`linux_compilation`
+Installation on Linux is pretty easy because it's managed by cmake.
 
 .. code-block:: sh
 
   make install
 
-you can specify the destination path with this variable **INSTALL_DIR**
+you can specify the destination path with the **CMAKE_INSTALL_PREFIX** variable in ccmake or at the cmake invocation.
 
 With your new installation you may need to update your environment for both python and library paths:
 
 .. code-block:: sh
 
-  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<my-new-install-dir>/Lima/lib
-  
-  export PYTHONPATH=$PYTHONPATH:<my-new-install-dir>
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<my-new-install-dir>/lib
+
+  export PYTHONPATH=$PYTHONPATH:<my-new-install-dir>/lib/pythonX.Y/site-packages
 
 
 
-**WARNING**: *"make install"* only installed C++ libs and python modules, the application like the python Tango server (LimaCCDs) code remains under applications/tango. Please go to :ref:`tango_installation` for further instructions.
+**WARNING**: *"make install"* only installs C++ libs and python modules, the application like the python Tango server (LimaCCDs) code remains under applications/tango. Please go to :ref:`tango_installation` for further instructions.
 
